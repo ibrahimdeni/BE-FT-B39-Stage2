@@ -1,0 +1,9 @@
+1. register = done
+2. login = done
+2. relasi = done
+4. crud = done
+5. f.uploads = done
+6. auth&role = done
+
+email ; ibrahimdeniharyanto@gmail.com
+pw : denisangar354
