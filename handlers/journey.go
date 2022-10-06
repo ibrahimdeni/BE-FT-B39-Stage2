@@ -123,6 +123,31 @@ func (h *handlerJourney) CreateJourney(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
+func (h *handlerJourney) DeleteJourney(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	id, _ := strconv.Atoi(mux.Vars(r)["id"])
+	journey, err := h.JourneyRepository.GetJourney(id)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		response := dto.ErrorResult{Code: http.StatusBadRequest, Message: err.Error()}
+		json.NewEncoder(w).Encode(response)
+		return
+	}
+
+	data, err := h.JourneyRepository.DeleteJourney(journey)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		response := dto.ErrorResult{Code: http.StatusInternalServerError, Message: err.Error()}
+		json.NewEncoder(w).Encode(response)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	response := dto.SuccessResult{Code: http.StatusOK, Data: convertResponseJourney(data)}
+	json.NewEncoder(w).Encode(response)
+}
+
 func convertResponseJourney(u models.Journey) models.Journey { 
 	return models.Journey{
 		ID			: u.ID,

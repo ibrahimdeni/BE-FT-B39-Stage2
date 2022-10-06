@@ -104,6 +104,31 @@ func (h *handlerBookmark) CreateBookmark(w http.ResponseWriter, r *http.Request)
 	json.NewEncoder(w).Encode(response)
 }
 
+func (h *handlerBookmark) DeleteBookmark(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	id, _ := strconv.Atoi(mux.Vars(r)["id"])
+	bookmark, err := h.BookmarkRepository.GetBookmark(id)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		response := dto.ErrorResult{Code: http.StatusBadRequest, Message: err.Error()}
+		json.NewEncoder(w).Encode(response)
+		return
+	}
+
+	data, err := h.BookmarkRepository.DeleteBookmark(bookmark)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		response := dto.ErrorResult{Code: http.StatusInternalServerError, Message: err.Error()}
+		json.NewEncoder(w).Encode(response)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	response := dto.SuccessResult{Code: http.StatusOK, Data: convertResponseBookmark(data)}
+	json.NewEncoder(w).Encode(response)
+}
+
 func convertResponseBookmark(u models.Bookmark) models.Bookmark { 
 	return models.Bookmark{
 		ID			: u.ID,
