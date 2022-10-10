@@ -10,6 +10,7 @@ type Journey struct {
 	Image       string               `json:"image" gorm:"type: varchar(255)"`
 	Description string               `json:"description" gorm:"type: text"`
 	CreatedAt time.Time 			 `json:"created_at"`
+	UpdatedAt time.Time				 `json:"updated_at"`
 	Bookmark	[]BookmarkResponse	`json:"bookmark"`
 	Message      string				 `json:"message" gorm:"type:text"`
 }
@@ -22,6 +23,7 @@ type JourneyInUser struct {
 	Image       string               `json:"image" gorm:"type: varchar(255)"`
 	Description string               `json:"description" gorm:"type: text"`
 	CreatedAt time.Time 			 `json:"created_at"`
+	UpdatedAt time.Time				 `json:"updated_at"`
 	Message      string				 `json:"message" gorm:"type:text"`
 }
 
