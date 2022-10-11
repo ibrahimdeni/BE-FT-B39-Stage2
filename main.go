@@ -1,9 +1,10 @@
 package main
 
 import (
-	"dumbflix/database"
-	"dumbflix/pkg/mysql"
-	"dumbflix/routes"
+	"os"
+	"thejourney/database"
+	"thejourney/pkg/mysql"
+	"thejourney/routes"
 
 	"fmt"
 	"net/http"
@@ -39,8 +40,8 @@ func main() {
 	var AllowedMethods = handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS", "PATCH", "DELETE"})
 	var AllowedOrigins = handlers.AllowedOrigins([]string{"*"})
 
-	var port = "5000"
+	var port = os.Getenv("PORT");
 
 	fmt.Println("server running localhost" + port)
-	http.ListenAndServe("localhost:"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
+	http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
 }

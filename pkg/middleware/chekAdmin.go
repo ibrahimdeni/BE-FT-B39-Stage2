@@ -2,9 +2,9 @@ package middleware
 
 import (
 	"context"
-	dto "dumbflix/dto/result"
 	"encoding/json"
 	"net/http"
+	dto "thejourney/dto/result"
 
 	"github.com/golang-jwt/jwt/v4"
 )

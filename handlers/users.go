@@ -1,14 +1,14 @@
 package handlers
 
 import (
-	dto "dumbflix/dto/result"
-	usersdto "dumbflix/dto/users"
-	"dumbflix/models"
-	"dumbflix/pkg/bcrypt"
-	"dumbflix/repositories"
 	"encoding/json"
 	"net/http"
 	"strconv"
+	dto "thejourney/dto/result"
+	usersdto "thejourney/dto/users"
+	"thejourney/models"
+	"thejourney/pkg/bcrypt"
+	"thejourney/repositories"
 
 	// "github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"

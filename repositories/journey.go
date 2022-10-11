@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"dumbflix/models"
+	"thejourney/models"
 
 	"gorm.io/gorm"
 )

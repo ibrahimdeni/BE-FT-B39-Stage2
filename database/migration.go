@@ -1,9 +1,9 @@
 package database
 
 import (
-	"dumbflix/models"
-	"dumbflix/pkg/mysql"
 	"fmt"
+	"thejourney/models"
+	"thejourney/pkg/mysql"
 )
 
 func RunMigration() {

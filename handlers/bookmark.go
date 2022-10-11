@@ -1,14 +1,14 @@
 package handlers
 
 import (
-	bookmarkdto "dumbflix/dto/bookmark"
-	dto "dumbflix/dto/result"
+	bookmarkdto "thejourney/dto/bookmark"
+	dto "thejourney/dto/result"
 
-	"dumbflix/models"
-	"dumbflix/repositories"
 	"encoding/json"
 	"net/http"
 	"strconv"
+	"thejourney/models"
+	"thejourney/repositories"
 
 	// "fmt"
 	"time"

@@ -1,16 +1,16 @@
 package handlers
 
 import (
-	journeydto "dumbflix/dto/journey"
-	dto "dumbflix/dto/result"
+	journeydto "thejourney/dto/journey"
+	dto "thejourney/dto/result"
 
 	// "fmt"
 
-	"dumbflix/models"
-	"dumbflix/repositories"
 	"encoding/json"
 	"net/http"
 	"strconv"
+	"thejourney/models"
+	"thejourney/repositories"
 
 	// "fmt"
 	"os"

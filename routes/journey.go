@@ -1,10 +1,10 @@
 package routes
 
 import (
-	"dumbflix/handlers"
-	"dumbflix/pkg/middleware"
-	"dumbflix/pkg/mysql"
-	"dumbflix/repositories"
+	"thejourney/handlers"
+	"thejourney/pkg/middleware"
+	"thejourney/pkg/mysql"
+	"thejourney/repositories"
 
 	"github.com/gorilla/mux"
 )

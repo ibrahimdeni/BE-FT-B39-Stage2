@@ -1,16 +1,16 @@
 package handlers
 
 import (
-	authdto "dumbflix/dto/auth"
-	dto "dumbflix/dto/result"
-	"dumbflix/models"
-	"dumbflix/pkg/bcrypt"
-	jwtToken "dumbflix/pkg/jwt"
-	"dumbflix/repositories"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
+	authdto "thejourney/dto/auth"
+	dto "thejourney/dto/result"
+	"thejourney/models"
+	"thejourney/pkg/bcrypt"
+	jwtToken "thejourney/pkg/jwt"
+	"thejourney/repositories"
 	"time"
 
 	"github.com/go-playground/validator/v10"

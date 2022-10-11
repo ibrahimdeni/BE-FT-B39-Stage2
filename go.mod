@@ -1,4 +1,4 @@
-module dumbflix
+module thejourney
 
 go 1.19
 
@@ -23,10 +23,10 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
-	golang.org/x/crypto v0.0.0-20221005025214-4161e89ecf1b // indirect
+	golang.org/x/crypto v0.0.0-20221010152910-d6f0a8c073c2 // indirect
 	golang.org/x/sys v0.0.0-20210806184541-e5e7981a1069 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gorm.io/driver/mysql v1.3.6 // indirect
-	gorm.io/driver/postgres v1.3.10 // indirect
-	gorm.io/gorm v1.23.10 // indirect
+	gorm.io/driver/postgres v1.4.4 // indirect
+	gorm.io/gorm v1.24.0 // indirect
 )

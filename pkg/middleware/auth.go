@@ -2,11 +2,11 @@ package middleware
 
 import (
 	"context"
-	dto "dumbflix/dto/result"
-	jwtToken "dumbflix/pkg/jwt"
 	"encoding/json"
 	"net/http"
 	"strings"
+	dto "thejourney/dto/result"
+	jwtToken "thejourney/pkg/jwt"
 )
 
 type Result struct {
