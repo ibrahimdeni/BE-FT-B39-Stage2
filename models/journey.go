@@ -11,7 +11,7 @@ type Journey struct {
 	Description string               `json:"description" gorm:"type: text"`
 	CreatedAt time.Time 			 `json:"created_at"`
 	UpdatedAt time.Time				 `json:"updated_at"`
-	Bookmark	[]BookmarkResponse	`json:"bookmark"`
+	Bookmark	[]BookmarkResponse	`json:"bookmark" gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 	Message      string				 `json:"message" gorm:"type:text"`
 }
 

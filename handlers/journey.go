@@ -4,15 +4,12 @@ import (
 	journeydto "thejourney/dto/journey"
 	dto "thejourney/dto/result"
 
-	// "fmt"
-
 	"encoding/json"
 	"net/http"
 	"strconv"
 	"thejourney/models"
 	"thejourney/repositories"
 
-	// "fmt"
 	"os"
 	"time"
 
@@ -130,18 +127,16 @@ func (h *handlerJourney) UpdateJourney(w http.ResponseWriter, r *http.Request) {
 	
 	//id journey??
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
-
+	// fmt.Println('test 1')
 	//get datafile ari middleware dan nyetor filename var disini,,
 	dataContex := r.Context().Value("dataFile") // add this code
 	filename := dataContex.(string) // add this code
 	//get data user dari token ges yak
-	userInfo := r.Context().Value("userInfo").(jwt.MapClaims)
-	userId := int(userInfo["id"].(float64))
+	// userInfo := r.Context().Value("userInfo").(jwt.MapClaims)
+	// userId := int(userInfo["id"].(float64))
 	
 	request := journeydto.UpdateJourneyRequest{
 		Title		: r.FormValue("title"),
-		UserID		: userId,
-		Image		: filename,
 		Description	: r.FormValue("description"),
 	}
 	
@@ -158,23 +153,17 @@ func (h *handlerJourney) UpdateJourney(w http.ResponseWriter, r *http.Request) {
 
 	journey, _ := h.JourneyRepository.GetJourney(int(id))
 
-	journey.Title = request.Title
-	journey.UserID = request.UserID
-	journey.Image = request.Image
+	// journey.Title = request.Title
+	// journey.UserID = request.UserID
+	// journey.Image = request.Image
+	// journey.Description = request.Description
 	journey.UpdatedAt = UpdatedAt
-	journey.Description = request.Description
 
 	if request.Title != "" {
 		journey.Title = request.Title
 	}
-	if request.UserID != 0 {
-		journey.UserID = request.UserID
-	}
-	if request.Image != filename {
-		journey.Image = request.Image
-	}
-	if request.UpdatedAt != time.Now() {
-		journey.UpdatedAt = request.UpdatedAt
+	if filename != "false" {
+		journey.Image = filename
 	}
 	if request.Description != "" {
 		journey.Description = request.Description
