@@ -1,4 +1,4 @@
-package journey
+package journeydto
 
 import "time"
 
