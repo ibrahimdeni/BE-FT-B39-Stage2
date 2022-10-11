@@ -1,6 +1,6 @@
 module thejourney
 
-go 1.19
+go 1.15
 
 require (
 	github.com/felixge/httpsnoop v1.0.3 // indirect
